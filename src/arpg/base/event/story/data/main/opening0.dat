@@ -1,0 +1,51 @@
+MUSIC,4
+VOICE_OF_HEAVEN,かつて群雄割拠の乱世に　魔法の力を持って覇を唱えた英雄がいた
+WAIT,1,
+TELOP_IMAGE_SET,add,アレイストス
+VOICE_OF_HEAVEN,名は『アレイストス=クラウディ』
+WAIT,1
+VOICE_OF_HEAVEN,騎士道全盛期の時代に　魔法学を広め\n魔導王国ローカを起こした　魔法学の父である
+WAIT,1
+VOICE_OF_HEAVEN,アレイストスは　魔法の力を持って各地を平定し\n各国と終始協定を結んで　戦乱の世に終わりを告げた
+WAIT,1
+TELOP_IMAGE_SET,remove,アレイストス
+TELOP_IMAGE_SET,add,ローカA
+VOICE_OF_HEAVEN,戦後　ローカ王アレイストスは　魔法学発展のために魔法の力を4つに分け
+WAIT,1
+VOICE_OF_HEAVEN,その力を　|真結晶《スフィア》と呼ばれる　結晶に封じて各地に\n展開した
+WAIT,1
+VOICE_OF_HEAVEN,そして　魔獣と呼ばれる　魔法生物が生み出され
+WAIT,1
+VOICE_OF_HEAVEN,人間に代わって働くようになり　各地で活躍する時代となったのである
+WAIT,1
+VOICE_OF_HEAVEN,時が進み
+WAIT,1
+VOICE_OF_HEAVEN,アレイストス亡き後　次代の国王により　より高度な知能を持った魔獣が生み出されると
+WAIT,1
+VOICE_OF_HEAVEN,魔獣達にも意志が芽生え　人間に反旗を翻すように\nなった
+WAIT,1
+VOICE_OF_HEAVEN,魔獣達は人間を襲い　人々は恐怖する
+WAIT,1
+VOICE_OF_HEAVEN,危機を感じたローカ王は　国軍に魔獣討伐の命を下し人間と魔獣との戦いが始まった
+WAIT,1
+VOICE_OF_HEAVEN,しかし　長年魔獣達に労働をさせ\n体力の衰えた人間は　魔獣達に勝てるはずもなく
+WAIT,1
+TELOP_IMAGE_SET,remove,ローカA
+TELOP_IMAGE_SET,add,ローカB
+VOICE_OF_HEAVEN,数年が経過する頃には　ローカ王国は人間のいない\n魔獣達の楽園とかしていた
+WAIT,2
+VOICE_OF_HEAVEN,それから３００年後
+WAIT,1
+VOICE_OF_HEAVEN,|真結晶《スフィア》は伝説となり　手にすれば強大な力が得られると人々に伝わっている
+WAIT,1
+VOICE_OF_HEAVEN,一方　人間と魔獣との戦いは　戦線を広め　各地で\n勃発していた
+WAIT,1
+TELOP_IMAGE_SET,remove,ローカB
+BACKGROUND,Map
+WAIT,1
+VOICE_OF_HEAVEN,ここはローカから南　昔ながらの騎士道を重んじる国エルシオン王国
+WAIT,1
+VOICE_OF_HEAVEN,今魔獣の国ローカから侵攻され　危機に扮していた
+WAIT,1
+VOICE_OF_HEAVEN,対するエルシオン王は　国を救うため　|特務隊《ディアド》に\n|真結晶《スフィア》奪還の命を　下したのである
+MUSIC,1

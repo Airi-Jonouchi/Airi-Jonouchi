@@ -1,0 +1,16 @@
+* category/name/x/y/id/direction/type
+NPC,女性,19,12,15,RIGHT,STAY
+NPC,男の子,23,13,88,LEFT,STAY
+NPC,商人,12,12,24,RIGHT,STAY
+
+* category/x/y/nx/ny/map
+CHENGE,15,22,32,40,SEPO
+
+* x/y/id/DoorLook,
+DOOR,15,14,0,FREE
+
+* x/y/id/DoorLook,
+DOOR,18,14,0,FREE
+
+* x/y/id/DoorLook,
+DOOR,18,18,0,FREE

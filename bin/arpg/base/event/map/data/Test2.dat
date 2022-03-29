@@ -1,0 +1,7 @@
+* x/y/nx/ny/map
+CHENGE,20,29,19,22,TEST
+CHENGE,21,29,19,22,TEST
+CHENGE,22,29,19,22,TEST
+
+* name/x/y/id/direction/type
+NPC,マリン,15,23,18,DOWN,STAY

@@ -1,0 +1,52 @@
+* category/name/x/y/id/direction/type
+NPC,リア,37,13,37,RIGHT,STAY
+NPC,女性,24,37,15,DOWN,ACTIVE
+NPC,おじいさん,15,23,48,DOWN,ACTIVE
+NPC,男性A,35,23,8,LEFT,ACTIVE
+NPC,男性B,36,36,8,LEFT,STAY
+NPC,女の子,24,20,90,LEFT,STAY
+NPC,犬,25,22,106,LEFT,ACTIVE
+NPC,マスター,37,39,-1,UP,STAY
+NPC,マスターグラ,37,40,69,UP,STAY
+NPC,ウエイトレス,39,34,92,LEFT,STAY
+NPC,宿屋,28,35,24,RIGHT,STAY
+NPC,道具屋,18,35,0,RIGHT,STAY
+NPC,武具屋,14,12,24,DOWN,STAY
+NPC,神父,15,29,43,RIGHT,STAY
+
+* category/name//x/y/type/flag
+SET,リア,-100,-100,STAY,2,
+
+* category/x/y/price
+INN,29,35,20
+
+* x/y/メッセージ
+POST,35,20,仙花流剣術道場
+POST,36,11,#の日記がある
+
+* category/x/y/店名
+SHOP,14,13,武器と防具のお店,ブロンズソード,レザーアーマー,レザーヘルム,ライトシールド
+SHOP,19,35,道具屋,薬草,ポイズンハーブ
+
+* category/x/y/price
+CHURCH,15,29,5
+
+* x/y/id/treasureNo/item
+TREASURE,39,16,-1,2,薬草
+TREASURE,39,16,-1,3,薬草
+TREASURE,34,30,-1,4,5
+
+* x/y
+DEPOSIT,39,30
+
+* category/x/y/nx/ny/map
+CHENGE,32,40,15,22,SEPO_INN_F2
+CHENGE,29,11,10,10,SEPO_DJ_B1
+CHENGE,22,11,16,10,SEPO_B1
+
+* category
+WARP,21,42,21,41,UP
+WARP,22,42,22,41,UP
+WARP,23,42,23,41,UP
+WARP,42,24,41,24,LEFT
+WARP,42,25,41,25,LEFT

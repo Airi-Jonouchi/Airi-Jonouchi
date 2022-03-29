@@ -1,0 +1,4 @@
+* name/x/y/id/direction/type
+NPC,フォード,-100,-100,63,DOWN,STAY
+NPC,リック,-100,-100,63,DOWN,STAY,
+NPC,？？？,-100,-100,104,DOWN,STAY,

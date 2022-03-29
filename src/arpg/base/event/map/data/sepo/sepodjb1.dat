@@ -1,0 +1,6 @@
+* category/name/x/y/id/direction/type
+NPC,シバ,15,16,37,UP,STAY
+NPC,リア,17,15,37,LEFT,STAY
+
+* category/x/y/nx/ny/map
+CHENGE,10,10,29,11,SEPO

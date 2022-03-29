@@ -1,0 +1,9 @@
+* name/x/y/id/direction/type
+NPC,フォード,18,20,63,DOWN,STAY
+NPC,リック,14,21,63,DOWN,STAY,
+
+* x/y/id/DoorLook,
+DOOR,14,11,3,EVENT
+
+** x/y/nx/ny/map
+CHENGE,14,11,21,32,OPENING_B

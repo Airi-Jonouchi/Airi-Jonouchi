@@ -1,0 +1,8 @@
+* category/x/y/nx/ny/map
+CHENGE,16,10,22,11,SEPO
+
+* x/y/id/DoorLook,
+DOOR,12,13,1,MAGIC
+
+* x/y/id/treasureNo/item,
+TREASURE,12,17,6,0,薬草

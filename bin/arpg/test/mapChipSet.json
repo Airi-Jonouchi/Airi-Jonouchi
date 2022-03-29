@@ -1,0 +1,14 @@
+{ "columns":16,
+ "image":"..\/base\/map\/image\/mapChip.png",
+ "imageheight":3552,
+ "imagewidth":512,
+ "margin":0,
+ "name":"mapChipSet",
+ "spacing":0,
+ "tilecount":1776,
+ "tiledversion":"1.7.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.6"
+}

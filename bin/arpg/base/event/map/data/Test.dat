@@ -1,0 +1,27 @@
+* name/x/y/territory/id/direction/type/limit/wepon
+MONSTER,サソリ,25,25,3,5,DOWN,ACTIVE,120,4
+MONSTER,ゴブリン,23,15,3,16,DOWN,ACTIVE,120,1
+
+* name/x/y/id/direction/type
+NPC,兵士A,15,20,63,DOWN,STAY
+
+* x/y/id/treasureNo/item,
+TREASURE,10,13,6,0,薬草
+
+* x/y/id/DoorLook,
+DOOR,13,8,2,NORMAL
+
+* x/y/price
+INN,9,8,20
+
+* x/y/店名
+SHOP,20,16,雑貨屋,薬草,レザーアーマー,レザーヘルム,アイアンソード
+
+* x/y/price
+CHURCH,12,14,5
+
+* x/y/nx/ny/map
+CHENGE,19,22,21,28,TEST2
+
+* category/name/x/y/territory/id/direction/type/limit/wepon
+BOSS,メフィスト,28,22,8,4,DOWN,BOSS,120,0
