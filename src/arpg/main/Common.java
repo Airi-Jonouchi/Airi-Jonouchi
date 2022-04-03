@@ -144,14 +144,21 @@ public class Common {
 		}
 	}
 
-	public enum MapDataPath {
+	/*public enum MapDataPath {
 
 		OPENING_A("オープニングA", "../base/map/data/opening/opening1.json", "../event/map/data/opening/opening1.dat", "../message/data/opening/opening1.csv", "DUNGEON", 0),
 		OPENING_B("オープニングB", "../base/map/data/opening/opening2.json", "../event/map/data/opening/opening2.dat", "../message/data/opening/opening2.csv", "DUNGEON", 1),
 		SEPO("辺境の町セポ","../base/map/data/sepo/sepo.json", "../event/map/data/sepo/sepo.dat", "../message/data/sepo/sepo.csv", "CITY", 2),
 		SEPO_B1("辺境の町セポB1","../base/map/data/sepo/sepo_b1.json", "../event/map/data/sepo/sepob1.dat", "../message/data/sepo/sepob1.csv", "CITY", 3),
 		SEPO_DJ_B1("辺境の町セポ道場B1","../base/map/data/sepo/sepo_djb1.json", "../event/map/data/sepo/sepodjb1.dat", "../message/data/sepo/sepodjb1.csv", "CITY", 4),
-		SEPO_INN_F2("辺境の町セポ宿屋2F","../base/map/data/sepo/sepo_inn2f.json", "../event/map/data/sepo/sepoinnf2.dat", "../message/data/sepo/sepoinnf2.csv", "CITY", 5);
+		SEPO_INN_F2("辺境の町セポ宿屋2F","../base/map/data/sepo/sepo_inn2f.json", "../event/map/data/sepo/sepoinnf2.dat", "../message/data/sepo/sepoinnf2.csv", "CITY", 5),
+		EMERIV("エメリヴ森林", "../base/map/data/emriv/meriv.json", "../event/map/data/emeriv/emeriv.dat", "../message/data/emriv/emeriv.csv", "DUNGEON", 6),
+		EMERIV_2("エメリヴ森林2", "../base/map/data/emriv/meriv_2.json", "../event/map/data/emeriv/emeriv_2.dat", "../message/data/emriv/emeriv_2.csv", "DUNGEON", 7),
+		EMERIV_3("エメリヴ森林3", "../base/map/data/emriv/meriv_3.json", "../event/map/data/emeriv/emeriv_3.dat", "../message/data/emriv/emeriv_3.csv", "DUNGEON", 8),
+		EMERIV_4("エメリヴ森林4", "../base/map/data/emriv/meriv_4.json", "../event/map/data/emeriv/emeriv_4.dat", "../message/data/emriv/emeriv_4.csv", "DUNGEON", 9),
+		EMERIV_5("エメリヴ森林5", "../base/map/data/emriv/meriv_5.json", "../event/map/data/emeriv/emeriv_5.dat", "../message/data/emriv/emeriv_5.csv", "DUNGEON", 10),
+		EMERIV_B1("エメリヴ森林B1", "../base/map/data/emriv/meriv_b1.json", "../event/map/data/emeriv/emeriv_b1.dat", "../message/data/emriv/emeriv_b1.csv", "DUNGEON", 11),
+		EMERIV_IDO("エメリヴ森林井戸", "../base/map/data/emriv/meriv_ido.json", "../event/map/data/emeriv/emeriv_ido.dat", "../message/data/emriv/emeriv_ido.csv", "DUNGEON", 12);
 		//TEST("開発島","mapData/Test.json", "eventData/Test.dat", "messageData/Test.txt", 0),
 		//TEST2("試験場","mapData/Test2.json", "eventData/Test2.dat", "messageData/Test2.txt", 1);
 
@@ -194,7 +201,7 @@ public class Common {
 		public int getId() {
 			return this.id;
 		}
-	}
+	}*/
 
 	public enum KeyCode {
 		DOWN, LEFT, RIGHT, UP, Z

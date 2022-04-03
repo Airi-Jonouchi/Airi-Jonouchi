@@ -13,10 +13,9 @@ import java.util.concurrent.TimeUnit;
 import arpg.base.event.map.AbstractEvent;
 import arpg.base.event.map.Door;
 import arpg.base.event.map.Drop;
-import arpg.base.event.map.MapChenge;
+import arpg.base.event.map.MapChengePoint;
 import arpg.base.event.map.Post;
 import arpg.base.event.map.Treasure;
-import arpg.base.event.map.WorldMapOP;
 import arpg.base.item.Item;
 import arpg.base.map.GameMap;
 import arpg.main.MainPanel;
@@ -367,24 +366,24 @@ public class Hero extends AbstractCharacter {
 		}
 	}
 
-	public boolean warp(MainPanel panel) {
+	public boolean warp(MainPanel panel, MapChengePoint chengePoint) {
 
-		AbstractEvent event = map.eventCheck(x, y);
+		/*AbstractEvent event = map.eventCheck(x, y);
 		
-		if(event instanceof MapChenge) {
-			MapChenge chenge = (MapChenge)event;
+		if(event instanceof MapChengePoint) {
+			MapChengePoint chenge = (MapChengePoint)event;*/
+		if(chengePoint != null) {
 			sound.soundEffectStart(SoundEffect.STAIRS);
 			map.removeCharacter(this);
 			if(map.getCrystal() != null) {
 				map.getCrystal().close();
 			}
 			map.init();
-			panel.lordMap(chenge.getNewMapId());
-			chenge.setLocation(this);
+			panel.lordMap(chengePoint.getNewMapId());
+			chengePoint.setLocation(this);
 			if(panel.getSoundNumber() != map.getSoundNumber()) {
 				panel.setBgm(panel.getSoundNumber());
 			}
-			
 			return true;	
 		}
 		return false;
@@ -397,14 +396,6 @@ public class Hero extends AbstractCharacter {
 			return shop;
 		}
 		return null;
-	}
-
-	public void worldMapModeOn(MainPanel panel) {
-
-		AbstractEvent event = map.eventCheck(x, y);
-		if(event instanceof WorldMapOP) {
-			panel.mapModeOn();
-		}
 	}
 
 	public HeroStatus getStatus() {

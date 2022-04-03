@@ -20,7 +20,6 @@ import arpg.base.item.Item;
 import arpg.base.magic.Magic;
 import arpg.main.MainPanel;
 import arpg.main.Common.Direction;
-import arpg.main.Common.MapDataPath;
 
 import arpg.personae.Hero;
 import arpg.prameter.status.HeroStatus;
@@ -45,7 +44,7 @@ public class DataOpration {
 	private MainPanel panel;
 	private Path path;
 	private Hero hero;
-	private int mapId;
+	private String mapId;
 	private HeroStatus status;
 	private Treasure treasure;
 	private Secret secret;
@@ -185,7 +184,8 @@ public class DataOpration {
 		hero.setY(Integer.parseInt(st.nextToken()));
 		hero.setId(0);
 		hero.setDirection(Direction.values()[Integer.parseInt(st.nextToken())]);
-		panel.lordMap(MapDataPath.values()[Integer.parseInt(st.nextToken())]);
+		//panel.lordMap(MapDataPath.values()[Integer.parseInt(st.nextToken())]);
+		panel.lordMap(st.nextToken());
 	}
 
 	private void lordStatus(StringTokenizer st) {

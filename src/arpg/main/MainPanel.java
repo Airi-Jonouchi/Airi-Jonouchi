@@ -4,12 +4,15 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.JPanel;
 
+import arpg.base.event.map.AbstractEvent;
+import arpg.base.event.map.MapChengePoint;
 import arpg.base.event.map.WorldMapOP;
 import arpg.base.event.story.Story;
 import arpg.base.item.Item;
@@ -17,6 +20,7 @@ import arpg.base.magic.Magic;
 import arpg.base.map.GameMap;
 import arpg.base.map.WorldMap;
 import arpg.base.message.MessageWindow;
+import arpg.main.path.MapDataPath;
 import arpg.personae.Hero;
 import arpg.personae.Monster;
 import arpg.prameter.Display;
@@ -40,10 +44,13 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 
 	public static int gameFlag = 0;
 	public static int money;
+	public static boolean isAction;
 	
-	private static GameMap[] area;
+	//private static GameMap[] area;
+	private static Map<String, GameMap> area;
 	
-	private GameMap currentMap;
+	private ReadXml readXml;
+	private static GameMap currentMap;
 	private Display disp;
 	private static Hero hero;
 	private MessageWindow window;
@@ -54,7 +61,7 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 	private NameInput input;
 	private Manifest manifest;
 	private int moveCount;
-	private int mapId;
+	private String mapId;
 
 	private int offsetX;
 	private int offsetY;
@@ -73,6 +80,7 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 	private boolean eventSwitch;
 	private boolean mapMode;
 	private boolean manifestMode;
+	
 
 	private Sound sound;
 	private int soundNumber;
@@ -87,10 +95,14 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 		addKeyListener(this);
 		gameSwitch = true;
 
+		readXml = new ReadXml();
 		story = new Story(this);
 		disp = new Display();
 		input = new NameInput();
 		sound = new Sound();
+
+		mapId = "OPNING_A";
+
 
 		hero = new Hero("トーマス", 25, 26, 0, Direction.DOWN, MoveType.PLAYER, 100, DEFAULT);
 		hero.setDirection(Direction.RIGHT);
@@ -98,9 +110,10 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 		debugSetting();
 		
 		if(area == null) {
-			createGameMap();
+			//createGameMap();
 		}
-		currentMap = area[mapId];
+		currentMap = new GameMap(readXml.readFile("SEPO"), this);
+		//currentMap = area.get(mapId);
 		currentMap.addCharacter(hero);
 
 		window = new MessageWindow(this.sound, this);
@@ -124,12 +137,12 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 	private void debugSetting() {
 
 		//主人公初期配置座標
-		hero = new Hero("トーマス", 21, 32, 0, Direction.DOWN, MoveType.PLAYER, 100, DEFAULT); //オープニングB
+		//hero = new Hero("トーマス", 21, 32, 0, Direction.DOWN, MoveType.PLAYER, 100, DEFAULT); //オープニングB
 		//hero = new Hero("トーマス", 38, 13, 0, Direction.DOWN, MoveType.PLAYER, 100, DEFAULT);	//セポ
-		//hero = new Hero("トーマス", 38, 23, 0, Direction.DOWN, MoveType.PLAYER, 100, DEFAULT);	//セポ
+		hero = new Hero("トーマス", 38, 23, 0, Direction.DOWN, MoveType.PLAYER, 100, DEFAULT);	//セポ
 		
 		//初期配置map
-		mapId = 1;
+		mapId = "SEPO";
 	
 		//主人公向き
 		//hero.setDirection(Direction.UP);
@@ -139,7 +152,7 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 		money = 500;
 
 		//ストーリー進行度
-		gameFlag = 2;
+		gameFlag = 5;
 
 		//名前入力
 		//input.setNameInputMode(true);
@@ -207,16 +220,46 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
         offsetY = Math.max(offsetY , PANEL_HEIGHT - currentMap.getHeight());
 	}
 
+
+
 	private void createGameMap() {
 
-		area = new GameMap[] {
-			new GameMap(MapDataPath.OPENING_A, this),
-			new GameMap(MapDataPath.OPENING_B, this),
+		new GameMap(readXml.readFile("辺境の町セポ"), this);
+		/*area = Map.ofEntries(
+			Map.entry("OPNING_A", new GameMap(readXml.readFile("オープニングA"), this)),
+			Map.entry("OPNING_B", new GameMap(readXml.readFile("オープニングA"), this)),
+			Map.entry("SEPO", new GameMap(readXml.readFile("辺境の町セポ"), this)),
+			Map.entry("SEPO_B1", new GameMap(readXml.readFile("辺境の町セポB1"), this)),
+			Map.entry("SEPO_DJB1", new GameMap(readXml.readFile("辺境の町セポ道場B1"), this)),
+			Map.entry("SEPO_INN2F", new GameMap(readXml.readFile("辺境の町セポ宿屋2F"), this)),
+			Map.entry("EMERIV", new GameMap(readXml.readFile("エメリヴ森林"), this)),
+			Map.entry("EMERIV_2", new GameMap(readXml.readFile("エメリヴ森林2"), this)),
+			Map.entry("EMERIV_3", new GameMap(readXml.readFile("エメリヴ森林3"), this)),
+			Map.entry("EMERIV_4", new GameMap(readXml.readFile("エメリヴ森林4"), this)),
+			Map.entry("EMERIV_5", new GameMap(readXml.readFile("エメリヴ森林5"), this)),
+			Map.entry("EMERIV_B1", new GameMap(readXml.readFile("エメリヴ森林B1"), this)),
+			Map.entry("EMERIV_IDO", new GameMap(readXml.readFile("エメリヴ森林井戸"), this))
+		);
+		/*area = new GameMap[] { 
+			new GameMap(readXml.readFile("オープニングA"), this),
+			new GameMap(readXml.readFile("オープニングB"), this),
+			new GameMap(readXml.readFile("辺境の町セポ"), this),
+			new GameMap(readXml.readFile("辺境の町セポB1"), this),
+			new GameMap(readXml.readFile("辺境の町セポ道場B1"), this),
+			new GameMap(readXml.readFile("辺境の町セポ宿屋2F"), this),
+			new GameMap(readXml.readFile("エメリヴ森林"), this),
+			new GameMap(readXml.readFile("エメリヴ森林2"), this),
+			new GameMap(readXml.readFile("エメリヴ森林3"), this),
+			new GameMap(readXml.readFile("エメリヴ森林4"), this),
+			new GameMap(readXml.readFile("エメリヴ森林5"), this),
+			new GameMap(readXml.readFile("エメリヴ森林B1"), this),
+			new GameMap(readXml.readFile("エメリヴ森林井戸"), this),
+
 			new GameMap(MapDataPath.SEPO, this),
 			new GameMap(MapDataPath.SEPO_B1, this),
 			new GameMap(MapDataPath.SEPO_DJ_B1, this),
 			new GameMap(MapDataPath.SEPO_INN_F2, this),
-		};
+			new GameMap(MapDataPath, panel)*/
 	}
 
 	@Override
@@ -260,8 +303,7 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 				if(hero.getStatus().fieldDamage(moveCount)) {
 					moveCount = 0;
 				}
-				hero.warp(this);
-				hero.worldMapModeOn(this);
+				warpEntrance();
 				story.lordMainEvent();
 				if(hero.getStatus().getCondition().isPoizon()) {
 					moveCount++;
@@ -273,6 +315,19 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 				}
 			}
 			setOffset();
+		}
+	}
+
+	private void warpEntrance() {
+
+		AbstractEvent event = currentMap.eventCheck(hero.getX(), hero.getY());
+
+		if(event instanceof WorldMapOP) {
+			mapMode = true;
+			keyReset();
+		}
+		else if(event instanceof MapChengePoint) {
+			hero.warp(this, (MapChengePoint)event);
 		}
 	}
 
@@ -329,15 +384,6 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 				if(!mapMode) {
 					mapMode = true;
 				}
-				else {
-					WorldMapOP op = (WorldMapOP) currentMap.eventCheck(hero.getX(), hero.getY());
-					if(op != null) {
-						hero.setX(op.getReverseX());
-						hero.setY(op.getReverseY());
-						hero.setDirection_2(op.getDirection());
-					}
-					mapMode = false;
-				}
 			}
 		}
 		else if(fkey.isPressed()) {
@@ -345,29 +391,26 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 				if(!manifestMode) {
 					manifestMode = true;
 				}
-				else {
-					manifestMode = false;
-				}
 			}
 		}
 	}
 
 	private boolean pausing() {
-		if(window.isVisible()) {
+		if(window.isVisible() || eventSwitch || command.isVisible() || hero.isExecution() || mapMode || input.isNameInputMode() || manifestMode) {
 			return true;
 		}
-		if(eventSwitch) {
+		/*if(eventSwitch) {
 			return true;
 		}
 		if(command.isVisible()) {
 			return true;
-		}
+		}*/
 		if(shop != null) {
 			if(shop.isUsed()) {
 				return true;
 			}
 		}
-		if(hero.isExecution()) {
+		/*if(hero.isExecution()) {
 			return true;
 		}
 		if(mapMode) {
@@ -378,7 +421,7 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 		}
 		if(manifestMode) {
 			return true;
-		}
+		}*/
 		return false;
 	}
 
@@ -498,8 +541,7 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 					}
 					else if(input.isNameInputMode()) {
 						input.moveCursor(KeyCode.LEFT);
-					}
-					
+					}	
 				}
 				case KeyEvent.VK_Z -> {
 					sound.soundEffectStart(SoundEffect.BOTTUN);
@@ -520,27 +562,34 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 				}
 				case KeyEvent.VK_CONTROL -> {
 					sound.soundEffectStart(SoundEffect.CANCEL);
-					if(shop == null) {
-						controlKey.press();
+					if(shop != null) {
+						if(shop.isUsed()) {
+							shop.close();
+						}
 					}
 					else if(input.isNameInputMode()) {
 						
 					}
 					else {
-						if(shop.isUsed()) {
-							shop.close();
-						}
-						else {
-							controlKey.press();
-						}
+						controlKey.press();
 					}
 				}
 				case KeyEvent.VK_M -> {
-					mKey.press();
-					sound.soundEffectStart(SoundEffect.CURSOR);
+					if(mapMode) {
+						WorldMapOP op = (WorldMapOP) currentMap.eventCheck(hero.getX(), hero.getY());
+						if(op != null) {
+							hero.setX(op.getReverseX());
+							hero.setY(op.getReverseY());
+						}
+						mapMode = false;
+						sound.soundEffectStart(SoundEffect.CURSOR);
+					}
 				}
 				case KeyEvent.VK_F -> {
-					fkey.press();
+					if(manifestMode) {
+						manifestMode = false;
+						sound.soundEffectStart(SoundEffect.CURSOR);
+					}	
 				}
 			}
 		}
@@ -633,6 +682,15 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 		}	
 	}
 
+	private void keyReset() {
+		upKey.reset();
+		downKey.reset();
+		rightKey.reset();
+		leftKey.reset();
+	}
+
+	
+
 	public static void setHeroName(String newHeroName) {
 		hero.setName(newHeroName);
 	}
@@ -657,18 +715,23 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 		return hero;
 	}
 
-	public void lordMap(MapDataPath path) {
-		currentMap = area[path.ordinal()];
+	public void lordMap(String id) {
+		String currentId = currentMap.getSelectMap().getId();
+		if(!currentId.equals(id)) {
+			currentMap = new GameMap(readXml.readFile(id), this);
+		
+		//currentMap = area.get(id);
 		currentMap.addCharacter(hero);
+		}
 	}
 
 	public GameMap getCurrentMap() {
 		return this.currentMap;
 	}
 
-	public GameMap getArea(int id) {
+	/*public GameMap getArea(int id) {
 		return area[id];
-	}
+	}*/
 
 	public void setCurrentMap(GameMap map) {
 		this.currentMap = map;

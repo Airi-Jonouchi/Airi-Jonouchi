@@ -1,7 +1,5 @@
 package arpg.system;
 
-import static arpg.main.Common.*;
-
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.util.ArrayList;
@@ -12,6 +10,8 @@ import java.util.Map;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import arpg.main.path.MapDataPath;
 
 public class DataLord {
 

@@ -25,7 +25,7 @@ import javax.imageio.ImageIO;
 import arpg.base.event.map.AbstractEvent;
 import arpg.base.event.map.Door;
 import arpg.base.event.map.Drop;
-import arpg.base.event.map.MapChenge;
+import arpg.base.event.map.MapChengePoint;
 import arpg.base.event.map.Post;
 import arpg.base.event.map.Treasure;
 import arpg.base.event.map.WorldMapOP;
@@ -36,7 +36,9 @@ import arpg.base.item.Item;
 import arpg.base.item.Item.ItemGenru;
 import arpg.base.map.object.Crystal;
 import arpg.main.MainPanel;
+import arpg.main.ReadXml;
 import arpg.main.Common.MoveType;
+import arpg.main.path.MapDataPath;
 import arpg.personae.AbstractCharacter;
 import arpg.personae.Boss;
 import arpg.personae.CharacterSet;
@@ -82,6 +84,7 @@ public class GameMap {
 	private static BufferedImage powerImage;
 	private static BufferedImage backGraoundImage;
 
+	private ReadXml readXml;
 	private MainPanel panel;
 	private String[] keys;
 	
@@ -113,12 +116,15 @@ public class GameMap {
 
 	static {
 		eventParty = new HashMap<>();
+		lordImage();
+		backGraoundImage = telopImage;
 	}
 
 	public GameMap(MapDataPath select, MainPanel panel) {
 
 		this.panel = panel;
 		this.select = select;
+		readXml = new ReadXml();
 
 		if(lord == null) {
 			lord = new DataLord(this.select);
@@ -131,11 +137,6 @@ public class GameMap {
 		width = ChipToPixcel(mx);
 		height = ChipToPixcel(my);
 
-		if(mapImage == null && powerImage == null) {
-			lordImage();
-			backGraoundImage = telopImage;
-		}
-
 		charaList = new ArrayList<>();
 		eventList = new ArrayList<>();
 		shopList = new ArrayList<>();
@@ -146,7 +147,7 @@ public class GameMap {
 			crystal = new Crystal(21, 18);
 			crystal.addCrystal();
 		}
-		if(select.getMapName().equals("辺境の町セポ")) {
+		if(select.getMapName().equals("辺境の町セポ") && gameFlag < 4) {
 			setGradation(0, 0, 0);
 		}
 		
@@ -156,12 +157,12 @@ public class GameMap {
 	}
 	public GameMap() {}
 
-	private void lordImage() {
+	private static void lordImage() {
 
 		try {
-			mapImage = ImageIO.read(getClass().getResourceAsStream("image/mapChip.png"));
-			telopImage = ImageIO.read(getClass().getResourceAsStream("image/backGround/telop.png"));
-			powerImage = ImageIO.read(getClass().getResourceAsStream("image/effect/power.png"));
+			mapImage = ImageIO.read(GameMap.class.getResourceAsStream("image/mapChip.png"));
+			telopImage = ImageIO.read(GameMap.class.getResourceAsStream("image/backGround/telop.png"));
+			powerImage = ImageIO.read(GameMap.class.getResourceAsStream("image/effect/power.png"));
 		} catch (IOException e) {	
 			throw new UncheckedIOException(e);
 		}
@@ -199,7 +200,7 @@ public class GameMap {
 		});
 
 		eventList.forEach(v -> {
-			if(!(v instanceof MapChenge) && !(v instanceof Drop)) {
+			if(!(v instanceof MapChengePoint) && !(v instanceof Drop)) {
 				v.drawImage(offsetX, offsetY, g);
 			}
 		});
@@ -731,9 +732,9 @@ public class GameMap {
 		int y = Integer.parseInt(st.nextToken());
 		int newX = Integer.parseInt(st.nextToken());
 		int newY = Integer.parseInt(st.nextToken());
-		MapDataPath map = MapDataPath.valueOf(st.nextToken());
+		String newMapId = st.nextToken();
 
-		MapChenge chenge = new MapChenge(x, y, newX, newY, map);
+		MapChengePoint chenge = new MapChengePoint(x, y, newX, newY, newMapId);
 		eventList.add(chenge);
 	}
 
@@ -963,7 +964,6 @@ public class GameMap {
 					isGradation = false;
 				}
 				type = null;
-				
 			}
 		});
 	}
@@ -1046,7 +1046,7 @@ public class GameMap {
 						}
 						eventCharacter.setType(type);
 						eventCharacter = null;
-						if(hero.warp(panel)) {
+						if(hero.warp(panel, (MapChengePoint)eventCheck(hero.getX(), hero.getY()))) {
 							panel.setOffset();
 							panel.getStory().lordMainEvent();
 						}
@@ -1265,9 +1265,9 @@ public class GameMap {
 		int y = hero.getY();
 		int newX = Integer.parseInt(st.nextToken());
 		int newY = Integer.parseInt(st.nextToken());
-		MapDataPath newMapPath = MapDataPath.valueOf(st.nextToken());
+		String newMapId = st.nextToken();
 
-		MapChenge chenge = new MapChenge(x, y, newX, newY, newMapPath);
+		MapChengePoint chenge = new MapChengePoint(x, y, newX, newY, newMapId);
 		removeCharacter(hero);
 		if(crystal != null) {
 			crystal.close();

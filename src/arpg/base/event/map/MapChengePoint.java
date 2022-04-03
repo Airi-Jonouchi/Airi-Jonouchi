@@ -2,16 +2,15 @@ package arpg.base.event.map;
 
 import java.awt.Graphics;
 
-import static arpg.main.Common.*;
 import arpg.personae.Hero;
 
-public class MapChenge extends AbstractEvent {
+public class MapChengePoint extends AbstractEvent {
 
 	private int newX;
 	private int newY;
-	private MapDataPath newMapId;
+	private String newMapId;
 
-	public MapChenge(int x, int y, int newX, int newY, MapDataPath newMapId) {
+	public MapChengePoint(int x, int y, int newX, int newY, String newMapId) {
 		super(x, y);
 		this.newX = newX;
 		this.newY = newY;
@@ -45,7 +44,7 @@ public class MapChenge extends AbstractEvent {
 		this.newY = newY;
 	}
 
-	public MapDataPath getNewMapId() {
+	public String getNewMapId() {
 		return newMapId;
 	}
 }

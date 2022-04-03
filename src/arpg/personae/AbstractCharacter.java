@@ -212,6 +212,13 @@ public abstract class AbstractCharacter {
 		return false;	
 	}
 
+	public void moveCansel() {
+		px = x * CHIP_SIZE;
+		py = y * CHIP_SIZE;
+		area.setLocation(px, py);
+		moving = false;	
+	}
+
 	protected void setAttackRange() {
 
 		switch(wepon) {

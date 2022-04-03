@@ -111,6 +111,9 @@ public class HeroStatus extends AbstractStatus implements IVariableWindow {
 			),
 			new Rectangle(
 				650, 100, 105, menuSize[3] * LINE_HEIGHT[0] + 15
+			),
+			new Rectangle(
+				210, 100, 215, 1 * LINE_HEIGHT[0] + 15
 			)
 		};
 
@@ -188,21 +191,33 @@ public class HeroStatus extends AbstractStatus implements IVariableWindow {
 
 		switch(command) {
 			case ITEM -> {
-				drawWindow(menuWindow[0], menuSize[1], g);
-				//g.setColor(color);
-				IntStream.range(0, itemBag.size()).forEach(e -> {
-					itemBag.get(e).drawIcon(dx, dy + e * LINE_HEIGHT[0] - 18, g);
-					drawString(itemBag.get(e).getName(), dx + ICON_SIZE, dy + e * LINE_HEIGHT[0], color, g);
-				});
-				drawString("並び替え", dx + ICON_SIZE, dy + (menuSize[1] - 1) * LINE_HEIGHT[0], color, g);
+				if(itemBag.size() > 0) {
+					drawWindow(menuWindow[0], menuSize[1], g);
+					//g.setColor(color);
+					IntStream.range(0, itemBag.size()).forEach(e -> {
+						itemBag.get(e).drawIcon(dx, dy + e * LINE_HEIGHT[0] - 18, g);
+						drawString(itemBag.get(e).getName(), dx + ICON_SIZE, dy + e * LINE_HEIGHT[0], color, g);
+					});
+					drawString("並び替え", dx + ICON_SIZE, dy + (menuSize[1] - 1) * LINE_HEIGHT[0], color, g);
+				}
+				else {
+					drawWindow(menuWindow[5], g);
+					drawString("なし", dx + ICON_SIZE, dy +  LINE_HEIGHT[0], color, g);
+				}
 			}
 			case MAGIC -> {
-				drawWindow(menuWindow[0], menuSize[1], g);
-				//g.setColor(color);
-				IntStream.range(0, menuSize[1]).forEach(e -> {
-					masterMagics.get(e).drawIcon(dx, dy + e * LINE_HEIGHT[0] - 18, g);
-					drawString(masterMagics.get(e).getName(), dx + ICON_SIZE, dy + e * LINE_HEIGHT[0], color, g);
-				});	
+				if(masterMagics.size() > 0) {
+					drawWindow(menuWindow[0], menuSize[1], g);
+					//g.setColor(color);
+					IntStream.range(0, menuSize[1]).forEach(e -> {
+						masterMagics.get(e).drawIcon(dx, dy + e * LINE_HEIGHT[0] - 18, g);
+						drawString(masterMagics.get(e).getName(), dx + ICON_SIZE, dy + e * LINE_HEIGHT[0], color, g);
+					});	
+				}
+				else {
+					drawWindow(menuWindow[5], g);
+					drawString("未習得", dx + ICON_SIZE, dy +  LINE_HEIGHT[0], color, g);
+				}	
 			}
 			case EQUIPMENT -> {
 				drawWindow(menuWindow[0], menuSize[1], g);
@@ -214,11 +229,17 @@ public class HeroStatus extends AbstractStatus implements IVariableWindow {
 			}
 			case STATUS -> drawStatus(FontAndColor.DARK, g);
 			case IMPORTANT -> {
-				drawWindow(menuWindow[0], menuSize[1], g);
-				IntStream.range(0, menuSize[1]).forEach(e -> {
-					keyItems.get(e).drawIcon(dx, dy + e * LINE_HEIGHT[0] - 18, g);
-					drawString(keyItems.get(e).getName(), dx + ICON_SIZE, dy + e * LINE_HEIGHT[0], g);
-				});
+				if(keyItems.size() > 0) {
+					drawWindow(menuWindow[0], menuSize[1], g);
+					IntStream.range(0, menuSize[1]).forEach(e -> {
+						keyItems.get(e).drawIcon(dx, dy + e * LINE_HEIGHT[0] - 18, g);
+						drawString(keyItems.get(e).getName(), dx + ICON_SIZE, dy + e * LINE_HEIGHT[0], g);
+					});
+				}
+				else {
+					drawWindow(menuWindow[5], g);
+					drawString("なし", dx + ICON_SIZE, dy +  LINE_HEIGHT[0], color, g);
+				}		
 			}
 			default -> {}
 		}

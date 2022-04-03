@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maps>
+	<map id="OPENING_A" name = "オープニングA" bgm="DUNGEON">
+		<image>../base/map/data/opening/opening_1.json</image>
+		<event>../event/map/data/opening/opening_1.dat</event>
+		<message>../message/data/opening/opening_1.csv</message>
+	</map>
+	
+	<map id="OPNING_B" name = "オープニングB" bgm="DUNGEON">
+		<image>../base/map/data/opening/opening_2.json</image>
+		<event>../event/map/data/opening/opening_2.dat</event>
+		<message>../message/data/opening/opening_2.csv</message>
+	</map>
+	
+	<map id="SEPO" name = "辺境の町セポ" bgm="CITY">
+		<image>../base/map/data/sepo/sepo.json</image>
+		<event>../event/map/data/sepo/sepo.dat</event>
+		<message>../message/data/sepo/sepo.csv</message>
+	</map>
+
+	<map id="SEPO_B1" name = "辺境の町セポB1" bgm="CITY">
+		<image>../base/map/data/sepo/sepo_b1.json</image>
+		<event>../event/map/data/sepo/sepo_b1.dat</event>
+		<message>../message/data/sepo/sepo_b1.csv</message>
+	</map>
+
+	<map id="SEPO_DJB1" name = "辺境の町セポ道場B1" bgm="CITY">
+		<image>../base/map/data/sepo/sepo_djb1.json</image>
+		<event>../event/map/data/sepo/sepo_djb1.dat</event>
+		<message>../message/data/sepo/sepo_djb1.csv</message>
+	</map>
+	
+	<map id="SEPO_INN2F" name = "辺境の町セポ宿屋2F" bgm="CITY">
+		<image>../base/map/data/sepo/sepo_innf2.json</image>
+		<event>../event/map/data/sepo/sepo_innf2.dat</event>
+		<message>../message/data/sepo/sepo_innf2.csv</message>
+	</map>
+
+	<map id="EMERIV" name = "エメリヴ森林" bgm="DUNGEON">
+		<image>../base/map/data/emeriv/emeriv.json</image>
+		<event>../event/map/data/emeriv/emeriv.dat</event>
+		<message>../message/data/emeriv/emeriv.csv</message>
+	</map>
+
+	<map id="EMERIV_2" name = "エメリヴ森林2" bgm="DUNGEON">
+		<image>../base/map/data/emeriv/emeriv_2.json</image>
+		<event>../event/map/data/emeriv/emeriv_2.dat</event>
+		<message>../message/data/emeriv/emeriv_2.csv</message>	
+	</map>
+
+	<map id="EMERIV_3" name = "エメリヴ森林3" bgm="DUNGEON">
+		<image>../base/map/data/emeriv/emeriv_3.json</image>
+		<event>../event/map/data/emeriv/emeriv_3.dat</event>
+		<message>../message/data/emeriv/emeriv_3.csv</message>
+	</map>
+
+	<map id="EMERIV_4" name = "エメリヴ森林4" bgm="DUNGEON">
+		<image>../base/map/data/emeriv/emeriv_4.json</image>
+		<event>../event/map/data/emeriv/emeriv_4.dat</event>
+		<message>../message/data/emeriv/emeriv_4.csv</message>		
+	</map>
+
+	<map id="EMERIV_5" name = "エメリヴ森林5" bgm="DUNGEON">
+		<image>../base/map/data/emeriv/emeriv_5.json</image>
+		<event>../event/map/data/emeriv/emeriv_5.dat</event>
+		<message>../message/data/emeriv/emeriv_5.csv</message>	
+	</map>
+
+	<map id="EMERIV_B1" name = "エメリヴ森林B1" bgm="DUNGEON">
+		<image>../base/map/data/emeriv/emeriv_b1.json</image>
+		<event>../event/map/data/emeriv/emeriv_b1.dat</event>
+		<message>../message/data/emeriv/emeriv_b1.csv</message>
+	</map>
+
+	<map id="EMERIV_IDO" name = "エメリヴ森林井戸" bgm="DUNGEON">
+		<image>../base/map/data/emeriv/emeriv_ido.json</image>
+		<event>../event/map/data/emeriv/emeriv_ido.dat</event>
+		<message>../message/data/emeriv/emeriv_ido.csv</message>		
+	</map>
+</maps>

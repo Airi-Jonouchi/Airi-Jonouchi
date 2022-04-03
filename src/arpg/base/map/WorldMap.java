@@ -45,18 +45,49 @@ public class WorldMap {
 			this.newY = newY;
 		}
 
-		public int getNewX() {
-			return this.newX;
+		public String getName() {
+			return this.name;
 		}
 
-		public int getNewY() {
-			return this.newY;
+		public int getNewX(String mapName) {
+			switch(this) {
+				case EMERIV -> {
+					switch(mapName) {
+						case "テヘランの郷" -> {
+							return 0;	
+						}
+						default -> {
+							return this.newX;
+						} 
+					}
+				}
+				default -> {
+					return this.newX;
+				}
+			}	
+		}
+
+		public int getNewY(String mapName) {
+			switch(this) {
+				case EMERIV -> {
+					switch(mapName) {
+						case "テヘランの郷" -> {
+							return 0;	
+						}
+						default -> {
+							return this.newY;
+						} 
+					}
+				}
+				default -> {
+					return this.newX;
+				}
+			}	
 		}
 	}
 
 	private static final FontAndColor ICON_INLINE = FontAndColor.ICON;
 	private static final FontAndColor ICON_OUTLINE = FontAndColor.ICON_OUT_LINE;
-
 
 	private static final int ICON_SIZE = 64;
 	private static final int D = 0;
