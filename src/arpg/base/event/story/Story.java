@@ -11,12 +11,12 @@ import arpg.main.Common.Direction;
 public class Story {
 
 	public enum MainEvent {
-		OPENING_TELOP("../event/story/data/main/opening0.dat", 0),
-		OPENING_A("../event/story/data/main/opening1.dat", 0),
-		OPENING_B("../event/story/data/main/opening2.dat", 1),
-		OPENING_C("../event/story/data/main/opening3.dat", 2),
+		OPENING_TELOP("../event/story/data/main/opening_0.dat", 0),
+		OPENING_A("../event/story/data/main/opening_1.dat", 0),
+		OPENING_B("../event/story/data/main/opening_2.dat", 1),
+		OPENING_C("../event/story/data/main/opening_3.dat", 2),
 		SEPO_NON_MOVE("../event/story/data/other/sepo_nonmove.dat", 2),
-		OPENING_D("../event/story/data/main/opening4.dat", 3),
+		OPENING_D("../event/story/data/main/opening_4.dat", 3),
 		;
 		
 		private String path;

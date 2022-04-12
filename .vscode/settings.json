@@ -1,9 +1,7 @@
 {
-    "java.project.sourcePaths": ["src"],
+    "java.project.sourcePaths":["src"],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "/Users/airijonouchi/Downloads/rpg20.jar",
-        "/Users/airijonouchi/Desktop/Junit/junit-4.13.2.jar"
     ]
 }

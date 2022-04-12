@@ -36,7 +36,6 @@ import arpg.base.item.Item;
 import arpg.base.item.Item.ItemGenru;
 import arpg.base.map.object.Crystal;
 import arpg.main.MainPanel;
-import arpg.main.ReadXml;
 import arpg.main.Common.MoveType;
 import arpg.main.path.MapDataPath;
 import arpg.personae.AbstractCharacter;
@@ -84,7 +83,6 @@ public class GameMap {
 	private static BufferedImage powerImage;
 	private static BufferedImage backGraoundImage;
 
-	private ReadXml readXml;
 	private MainPanel panel;
 	private String[] keys;
 	
@@ -124,7 +122,6 @@ public class GameMap {
 
 		this.panel = panel;
 		this.select = select;
-		readXml = new ReadXml();
 
 		if(lord == null) {
 			lord = new DataLord(this.select);

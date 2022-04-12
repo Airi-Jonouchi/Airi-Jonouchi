@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <maps>
+
 	<map id="OPENING_A" name = "オープニングA" bgm="DUNGEON">
 		<image>../base/map/data/opening/opening_1.json</image>
 		<event>../event/map/data/opening/opening_1.dat</event>
 		<message>../message/data/opening/opening_1.csv</message>
 	</map>
 	
-	<map id="OPNING_B" name = "オープニングB" bgm="DUNGEON">
+	<map id="OPENING_B" name = "オープニングB" bgm="DUNGEON">
 		<image>../base/map/data/opening/opening_2.json</image>
 		<event>../event/map/data/opening/opening_2.dat</event>
 		<message>../message/data/opening/opening_2.csv</message>

@@ -101,8 +101,8 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 		input = new NameInput();
 		sound = new Sound();
 
-		mapId = "OPNING_A";
-
+		//mapId = "OPNING_A";
+        mapId = "SEPO";
 
 		hero = new Hero("トーマス", 25, 26, 0, Direction.DOWN, MoveType.PLAYER, 100, DEFAULT);
 		hero.setDirection(Direction.RIGHT);
@@ -112,7 +112,8 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 		if(area == null) {
 			//createGameMap();
 		}
-		currentMap = new GameMap(readXml.readFile("SEPO"), this);
+		//currentMap = new GameMap(readXml.readFile("OPENING_A"), this);
+        currentMap = new GameMap(readXml.readFile("SEPO"), this);
 		//currentMap = area.get(mapId);
 		currentMap.addCharacter(hero);
 
@@ -718,20 +719,15 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 	public void lordMap(String id) {
 		String currentId = currentMap.getSelectMap().getId();
 		if(!currentId.equals(id)) {
-			currentMap = new GameMap(readXml.readFile(id), this);
-		
-		//currentMap = area.get(id);
-		currentMap.addCharacter(hero);
+			currentMap = new GameMap(readXml.readFile(id), this);	
+			//currentMap = area.get(id);
+			currentMap.addCharacter(hero);
 		}
 	}
 
 	public GameMap getCurrentMap() {
 		return this.currentMap;
 	}
-
-	/*public GameMap getArea(int id) {
-		return area[id];
-	}*/
 
 	public void setCurrentMap(GameMap map) {
 		this.currentMap = map;
