@@ -17,17 +17,23 @@ public class ReadXml {
 
 	private static Document document;
 
-	static {
+	/*static {
 		initDocument();
-	}
+	}*/
 
-	private static void initDocument() {
+    public ReadXml() {
+        if(document == null)
+        initDocument();
+    }
+
+	private void initDocument() {
 		
 		try(BufferedInputStream is = new BufferedInputStream(ReadXml.class.getResourceAsStream("path/data/path.xml"));) {		 
 			document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(is);
-		} catch (SAXException | IOException | ParserConfigurationException e) {
+		} 
+        catch (SAXException | IOException | ParserConfigurationException e) {
 			throw new IllegalStateException(e);
-		}
+        }
 	}
 	
 	public MapDataPath readFile(String data) {

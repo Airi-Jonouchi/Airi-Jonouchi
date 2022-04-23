@@ -22,6 +22,7 @@ public class Crystal {
 	private int y;
 	private boolean isRotation;
 
+
 	public Crystal(int x, int y) {
 		
 		this.x = x;
@@ -32,8 +33,8 @@ public class Crystal {
 	}
 
 	private void lordImage() {
-		try {
-			image = ImageIO.read(getClass().getResourceAsStream("../image/object/crystal.png"));
+		try{
+            image = ImageIO.read(getClass().getResourceAsStream("../image/object/crystal.png")); 
 		} catch (IOException e) {
 			throw new UncheckedIOException(e);
 		}

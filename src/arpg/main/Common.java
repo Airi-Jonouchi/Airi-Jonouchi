@@ -94,12 +94,18 @@ public class Common {
 		public static final int RUBY_WIDTH = 6;
 		public static final int RUBY_HEIGHT = 18;
 
-		private static final Font IN_LINE_FONT = createGameFont("../base/font/rounded-mplus-1c-regular.ttf", "rounded-mplus-1c-regular", Font.BOLD, FONT_WIDTH);
-		private static final Font OUT_LINE_FONT = createGameFont("../base/font/rounded-mplus-1c-regular.ttf", "rounded-mplus-1c-regular", Font.BOLD, FONT_WIDTH + 1);
-		private static final Font RUBY_IN_LINE_FONT = createGameFont("../base/font/rounded-mplus-1c-regular.ttf", "rounded-mplus-1c-regular", Font.BOLD, RUBY_WIDTH);
-		private static final Font RUBY_OUT_LINE_FONT = createGameFont("../base/font/rounded-mplus-1c-heavy.ttf", "rounded-mplus-1c-heavy", Font.BOLD, RUBY_WIDTH + 1);
-		private static final Font ICON_IN_LINE_FONT = createGameFont("../base/font/rounded-mplus-1c-regular.ttf", "rounded-mplus-1c-regular", Font.BOLD, 12);
-		private static final Font ICON_OUT_LINE_FONT = createGameFont("../base/font/rounded-mplus-1c-regular.ttf", "rounded-mplus-1c-regular", Font.BOLD, 14);
+		//private static final Font IN_LINE_FONT = createGameFont("../base/font/rounded-mplus-1c-regular.ttf", "rounded-mplus-1c-regular", Font.BOLD, FONT_WIDTH);
+		//private static final Font OUT_LINE_FONT = createGameFont("../base/font/rounded-mplus-1c-regular.ttf", "rounded-mplus-1c-regular", Font.BOLD, FONT_WIDTH + 1);
+		//private static final Font RUBY_IN_LINE_FONT = createGameFont("../base/font/rounded-mplus-1c-regular.ttf", "rounded-mplus-1c-regular", Font.BOLD, RUBY_WIDTH);
+		//private static final Font RUBY_OUT_LINE_FONT = createGameFont("../base/font/rounded-mplus-1c-heavy.ttf", "rounded-mplus-1c-heavy", Font.BOLD, RUBY_WIDTH + 1);
+		//private static final Font ICON_IN_LINE_FONT = createGameFont("../base/font/rounded-mplus-1c-regular.ttf", "rounded-mplus-1c-regular", Font.BOLD, 12);
+		//private static final Font ICON_OUT_LINE_FONT = createGameFont("../base/font/rounded-mplus-1c-regular.ttf", "rounded-mplus-1c-regular", Font.BOLD, 14);
+        private static final Font IN_LINE_FONT = createGameFont("font/rounded-mplus-1c-regular.ttf", "rounded-mplus-1c-regular", Font.BOLD, FONT_WIDTH);
+		private static final Font OUT_LINE_FONT = createGameFont("font/rounded-mplus-1c-regular.ttf", "rounded-mplus-1c-regular", Font.BOLD, FONT_WIDTH + 1);
+		private static final Font RUBY_IN_LINE_FONT = createGameFont("font/rounded-mplus-1c-regular.ttf", "rounded-mplus-1c-regular", Font.BOLD, RUBY_WIDTH);
+		private static final Font RUBY_OUT_LINE_FONT = createGameFont("font/rounded-mplus-1c-heavy.ttf", "rounded-mplus-1c-heavy", Font.BOLD, RUBY_WIDTH + 1);
+		private static final Font ICON_IN_LINE_FONT = createGameFont("font/rounded-mplus-1c-regular.ttf", "rounded-mplus-1c-regular", Font.BOLD, 12);
+		private static final Font ICON_OUT_LINE_FONT = createGameFont("font/rounded-mplus-1c-regular.ttf", "rounded-mplus-1c-regular", Font.BOLD, 14);
 
 		private FontOption(){}
 
